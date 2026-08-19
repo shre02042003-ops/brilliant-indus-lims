@@ -26,7 +26,7 @@ import { isRowEmpty } from "../utils/emptyBulkRow";
 import { useBulkEntries } from "../context/BulkEntriesContext";
 
 const COLUMN_HEADERS = [
-  "Sr. No.",
+  "Sr. No",
   "Description of UUC",
   "Make",
   "Range Min",
@@ -60,7 +60,14 @@ export default function BulkCalibrationPage() {
 
   return (
     <Container maxWidth={false} sx={{ py: 3, px: 4 }}>
-      <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 2 }}>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          mb: 2,
+        }}
+      >
         <Typography variant="h5" fontWeight="bold">
           Bulk Calibration Entries
         </Typography>
@@ -70,24 +77,48 @@ export default function BulkCalibrationPage() {
       </Box>
 
       <Paper variant="outlined" sx={{ p: 2, mb: 2 }}>
-        <Stack direction="row" spacing={1.5} sx={{ mb: 2 }} alignItems="center" flexWrap="wrap">
+        <Stack
+          direction="row"
+          spacing={1.5}
+          sx={{ mb: 2 }}
+          alignItems="center"
+          flexWrap="wrap"
+        >
           <Stack direction="row" spacing={0.75} alignItems="center">
-            <Button variant="contained" size="small" onClick={() => setNewCompanyOpen(true)}>
+            <Button
+              variant="contained"
+              size="small"
+              onClick={() => setNewCompanyOpen(true)}
+            >
               New Company
             </Button>
             <ExpandableLookupButton label="companies" to="/lookup/companies" />
           </Stack>
           <Stack direction="row" spacing={0.75} alignItems="center">
-            <Button variant="contained" size="small" onClick={() => setNewInstrumentOpen(true)}>
+            <Button
+              variant="contained"
+              size="small"
+              onClick={() => setNewInstrumentOpen(true)}
+            >
               New UUC Instrument
             </Button>
-            <ExpandableLookupButton label="UUC instruments" to="/lookup/instruments" />
+            <ExpandableLookupButton
+              label="UUC instruments"
+              to="/lookup/instruments"
+            />
           </Stack>
           <Stack direction="row" spacing={0.75} alignItems="center">
-            <Button variant="contained" size="small" onClick={() => setNewMasterOpen(true)}>
+            <Button
+              variant="contained"
+              size="small"
+              onClick={() => setNewMasterOpen(true)}
+            >
               New Master Equipment
             </Button>
-            <ExpandableLookupButton label="master equipment" to="/lookup/masters" />
+            <ExpandableLookupButton
+              label="master equipment"
+              to="/lookup/masters"
+            />
           </Stack>
         </Stack>
         <CompanyLookupBar company={company} onCompanyChange={setCompany} />
@@ -95,9 +126,14 @@ export default function BulkCalibrationPage() {
 
       <Paper variant="outlined" sx={{ p: 1 }}>
         <TableContainer>
-          <Table size="small" sx={{ "& .MuiTableCell-root": { borderColor: "divider" } }}>
+          <Table
+            size="small"
+            sx={{ "& .MuiTableCell-root": { borderColor: "divider" } }}
+          >
             <TableHead>
-              <TableRow sx={{ "& th": { fontWeight: "bold", bgcolor: "action.hover" } }}>
+              <TableRow
+                sx={{ "& th": { fontWeight: "bold", bgcolor: "action.hover" } }}
+              >
                 {COLUMN_HEADERS.map((h) => (
                   <TableCell key={h}>{h}</TableCell>
                 ))}
@@ -106,7 +142,9 @@ export default function BulkCalibrationPage() {
             <TableBody>
               {rows.map((row, index) => {
                 const suggestedCopyRow =
-                  index > 0 && isRowEmpty(row) && !isRowEmpty(rows[index - 1]) ? index : null;
+                  index > 0 && isRowEmpty(row) && !isRowEmpty(rows[index - 1])
+                    ? index
+                    : null;
                 return (
                   <BulkRow
                     key={row.key}
@@ -126,7 +164,15 @@ export default function BulkCalibrationPage() {
           </Table>
         </TableContainer>
 
-        <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mt: 2, px: 1 }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            mt: 2,
+            px: 1,
+          }}
+        >
           <Button startIcon={<AddIcon />} onClick={handleAddRow}>
             Add Row
           </Button>
@@ -145,8 +191,14 @@ export default function BulkCalibrationPage() {
         onClose={() => setNewCompanyOpen(false)}
         onCreated={(c) => setCompany(c)}
       />
-      <NewInstrumentDialog open={newInstrumentOpen} onClose={() => setNewInstrumentOpen(false)} />
-      <NewMasterDialog open={newMasterOpen} onClose={() => setNewMasterOpen(false)} />
+      <NewInstrumentDialog
+        open={newInstrumentOpen}
+        onClose={() => setNewInstrumentOpen(false)}
+      />
+      <NewMasterDialog
+        open={newMasterOpen}
+        onClose={() => setNewMasterOpen(false)}
+      />
     </Container>
   );
 }
