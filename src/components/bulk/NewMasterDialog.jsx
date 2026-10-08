@@ -149,7 +149,7 @@ export default function NewMasterDialog({ open, onClose }) {
               minRows={2}
             />
             <Grid container spacing={2}>
-              <Grid item xs={6}>
+              <Grid size={6}>
                 <TextField
                   label="Range Min (bar)"
                   type="number"
@@ -158,7 +158,7 @@ export default function NewMasterDialog({ open, onClose }) {
                   fullWidth
                 />
               </Grid>
-              <Grid item xs={6}>
+              <Grid size={6}>
                 <TextField
                   label="Range Max (bar)"
                   type="number"
@@ -181,7 +181,7 @@ export default function NewMasterDialog({ open, onClose }) {
             />
             <TextField label="Cert No." value={fields.certNo} onChange={set("certNo")} fullWidth />
             <Grid container spacing={2}>
-              <Grid item xs={6}>
+              <Grid size={6}>
                 <DatePicker
                   label="Cal Date"
                   value={fields.calDate}
@@ -189,7 +189,7 @@ export default function NewMasterDialog({ open, onClose }) {
                   slotProps={{ textField: { fullWidth: true } }}
                 />
               </Grid>
-              <Grid item xs={6}>
+              <Grid size={6}>
                 <DatePicker
                   label="Due Date"
                   value={fields.dueDate}

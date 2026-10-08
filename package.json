@@ -20,11 +20,13 @@
     "@mui/icons-material": "^9.2.0",
     "@mui/material": "^9.2.0",
     "@mui/x-date-pickers": "^9.9.0",
+    "@react-pdf/renderer": "^4.6.1",
     "axios": "^1.18.1",
     "better-sqlite3": "^12.11.1",
     "cors": "^2.8.6",
     "dayjs": "^1.11.21",
     "express": "^5.2.1",
+    "pdf-lib": "^1.17.1",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-router-dom": "^7.18.1"

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, TextField, Paper, Typography } from '@mui/material';
+import { Grid, TextField, Paper } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
 export default function CertificateHeader({ form, setForm }) {
@@ -14,13 +14,7 @@ export default function CertificateHeader({ form, setForm }) {
   return (
     <Paper variant="outlined" sx={{ p: 2, mb: 2 }}>
       <Grid container spacing={1.5} alignItems="center">
-        <Grid item xs={12}>
-          <Typography variant="h6" fontWeight="bold" textAlign="center" sx={{ mb: 1 }}>
-            CALIBRATION CERTIFICATE
-          </Typography>
-        </Grid>
-
-        <Grid item xs={3}>
+        <Grid size={3}>
           <TextField
             label="Certificate No"
             value={form.certificateNo}
@@ -29,7 +23,7 @@ export default function CertificateHeader({ form, setForm }) {
             InputProps={{ readOnly: true }}
           />
         </Grid>
-        <Grid item xs={4}>
+        <Grid size={4}>
           <TextField
             label="ULR No"
             value={form.ulrNo}
@@ -38,7 +32,7 @@ export default function CertificateHeader({ form, setForm }) {
             InputProps={{ readOnly: true }}
           />
         </Grid>
-        <Grid item xs={5}>
+        <Grid size={5}>
           <DatePicker
             label="Date of Issue"
             value={form.dateOfIssue}
@@ -47,7 +41,7 @@ export default function CertificateHeader({ form, setForm }) {
           />
         </Grid>
 
-        <Grid item xs={3}>
+        <Grid size={3}>
           <DatePicker
             label="Date of Calibration"
             value={form.dateOfCalibration}
@@ -55,7 +49,7 @@ export default function CertificateHeader({ form, setForm }) {
             slotProps={{ textField: { fullWidth: true, size: 'small' } }}
           />
         </Grid>
-        <Grid item xs={4}>
+        <Grid size={4}>
           <DatePicker
             label="Next Due Date"
             value={form.nextDueDate}
@@ -63,10 +57,10 @@ export default function CertificateHeader({ form, setForm }) {
             slotProps={{ textField: { fullWidth: true, size: 'small' } }}
           />
         </Grid>
-        <Grid item xs={2.5}>
+        <Grid size={2.5}>
           <TextField label="Page No." value="1" fullWidth InputProps={{ readOnly: true }} />
         </Grid>
-        <Grid item xs={2.5}>
+        <Grid size={2.5}>
           <TextField label="No. of Pages" value="1" fullWidth InputProps={{ readOnly: true }} />
         </Grid>
       </Grid>

@@ -92,7 +92,7 @@ export default function EntityLookupPage() {
     setError("");
     axios
       .get(config.apiPath)
-      .then((res) => setRows(res.data))
+      .then((res) => setRows(Array.isArray(res.data) ? res.data : []))
       .catch(() => setError(`Failed to load ${config.label}`))
       .finally(() => setLoading(false));
   }, [config]);
